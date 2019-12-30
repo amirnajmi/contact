@@ -1,11 +1,20 @@
 package com.snappbox.contact.repository;
 
 import com.snappbox.contact.domain.Contact;
-import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-@Tag(name = "contact", description = "the Contact API")
-@RepositoryRestResource(collectionResourceRel = "contact", path = "contact")
-public interface ContactRepository extends CrudRepository<Contact, Integer> {
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+
+@RepositoryRestResource(collectionResourceRel = "contact", path = "contact")
+public interface ContactRepository extends MongoRepository<Contact, String>, CrudRepository<Contact, String> {
+//    @Query(value = "{'name' : ?0, 'email' : ?0, 'phoneNumber' : ?0 , 'organization' : ?0 }")
+//    List<Contact> find(@Param("name") String name,@Param("email") String email,@Param("phoneNumber") String phoneNumber,@Param("organization") String organization);
+
+    List<Contact> findByNameOrEmail(String name, String email);
 }
