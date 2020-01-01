@@ -18,6 +18,6 @@ You can also bootstrap project without docker.
 in this situation you should change mongodb connection string. you can do that by changing configs from **application.properties**
 
 # Test APIs
-For testing apis there is swagger-ui that will be available throw this address: 
+For testing apis there is swagger-ui that will be available through this address: 
 > http://localhost:8085/swagger-ui.html
 
