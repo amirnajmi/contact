@@ -12,6 +12,11 @@ other containers.
 > */snappbox/resources*
 * All the APIs supports *Hateoas*
 > http://localhost:8085/snappbox/resources/contact
+(open with Firefox for better formatting)
+# Without Docker
+You can also bootstrap project without docker.
+in this situation you should change mongodb connection string. you can do that by changing configs from **application.properties**
+
 # Test APIs
 For testing apis there is swagger-ui that will be available throw this address: 
 > http://localhost:8085/swagger-ui.html
